@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <style>
@@ -37,21 +37,21 @@
 <div>
     <table>
         <tr>
-            <td th:text="'Date: ' + ${#dates.format(order.createAt, 'dd/MM/yyyy')}"></td>
+            <td>Date: 22/04/2022</td>
         </tr>
         <tr>
-            <td th:text="'OrderId: ' + ${order.id}"></td>
+            <td>OrderId: 1</td>
         </tr>
     </table>
     <table>
         <tr>
-            <td th:text="'CustomerId: ' + ${order.customer.id}"></td>
+            <td>CustomerId: 1</td>
         </tr>
         <tr>
-            <td th:text="'Customer: ' + ${order.customer.name}"></td>
+            <td>Customer: John</td>
         </tr>
         <tr>
-            <td th:text="'Address: ' + ${order.customer.address}"></td>
+            <td>Address: usa</td>
         </tr>
     </table>
 </div>
@@ -64,16 +64,23 @@
         <th>Price</th>
         <th>Total</th>
     </tr>
-    <tr th:each="item, iterStat: ${order.orderItemsList}">
-        <td th:text="${iterStat.index + 1}"></td>
-        <td th:text="${item.name}"></td>
-        <td th:text="${item.quantity}"></td>
-        <td th:text="${item.price}"></td>
-        <td th:text="${item.total}"></td>
+    <tr>
+        <td>1</td>
+        <td>mac</td>
+        <td>20</td>
+        <td>10</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>mouse</td>
+        <td>17</td>
+        <td>10</td>
+        <td>170</td>
     </tr>
     <tr>
         <td class="total" colspan="4"><b>Total</b></td>
-        <td><b th:text="${#aggregates.sum(order.orderItemsList.![total])}"></b></td>
+        <td><b>370</b></td>
     </tr>
 </table>
 </body>

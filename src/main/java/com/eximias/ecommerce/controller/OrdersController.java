@@ -1,15 +1,20 @@
 package com.eximias.ecommerce.controller;
 import com.eximias.ecommerce.dto.OrdersDTO;
 import com.eximias.ecommerce.entity.Orders;
+import com.eximias.ecommerce.mapper.CustomerMapper;
 import com.eximias.ecommerce.service.OrdersService;
 import com.eximias.ecommerce.service.PdfGenerateService;
+import com.eximias.ecommerce.service.ProductService;
 import lombok.AllArgsConstructor;
+
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
 
 @RestController
 @AllArgsConstructor
@@ -17,6 +22,8 @@ import java.util.Optional;
 public class OrdersController {
     private final OrdersService ordersService;
     private final PdfGenerateService pdfGenerateService;
+    private final ProductService productService;
+    private final CustomerMapper customerMapper;
     @PostMapping(path = "/new")
     public int create(@RequestBody OrdersDTO ordersDTO){
        return ordersService.create(ordersDTO);
@@ -38,12 +45,10 @@ public class OrdersController {
         return ordersService.findOrderById(id);
     }
     @GetMapping(path ="/{id}/pdf")
-    public Optional<Orders> printPd(@PathVariable(name ="id") int id){
-        System.out.println("chay toi day");
+    public void printPd(@PathVariable(name ="id") int id){
+        Orders orders = ordersService.findOrderById(id).get();
         Map<String, Object> data = new HashMap<>();
-        data.put("order", ordersService.findOrderById(id));
+        data.put("order", orders);
         pdfGenerateService.generatePdfFile("orderDetail", data);
-        return ordersService.findOrderById(id);
     }
-
 }

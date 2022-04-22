@@ -1,6 +1,5 @@
 package com.eximias.ecommerce.config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
@@ -8,7 +7,7 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 @Configuration
 public class ThymeleafConfiguration {
     @Bean
-    public ClassLoaderTemplateResolver emailTemplateResolver() {
+    public ClassLoaderTemplateResolver templateResolver() {
         ClassLoaderTemplateResolver pdfTemplateResolver = new ClassLoaderTemplateResolver();
         pdfTemplateResolver.setPrefix("templates/");
         pdfTemplateResolver.setSuffix(".html");

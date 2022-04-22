@@ -26,8 +26,14 @@ public class OrderItems {
 
     private int productId;
 
+    private String name;
+
+    private int price;
+
     private Integer quantity;
 
     private String description;
+
+    private int total;
 
 }

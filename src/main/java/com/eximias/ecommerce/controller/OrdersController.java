@@ -7,6 +7,7 @@ import com.eximias.ecommerce.service.PdfGenerateService;
 import com.eximias.ecommerce.service.ProductService;
 import lombok.AllArgsConstructor;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -22,8 +23,6 @@ import java.util.Optional;
 public class OrdersController {
     private final OrdersService ordersService;
     private final PdfGenerateService pdfGenerateService;
-    private final ProductService productService;
-    private final CustomerMapper customerMapper;
     @PostMapping(path = "/new")
     public int create(@RequestBody OrdersDTO ordersDTO){
        return ordersService.create(ordersDTO);
@@ -45,10 +44,10 @@ public class OrdersController {
         return ordersService.findOrderById(id);
     }
     @GetMapping(path ="/{id}/pdf")
-    public void printPd(@PathVariable(name ="id") int id){
+    public ResponseEntity<byte[]> printPd(@PathVariable(name ="id") int id){
         Orders orders = ordersService.findOrderById(id).get();
         Map<String, Object> data = new HashMap<>();
         data.put("order", orders);
-        pdfGenerateService.generatePdfFile("orderDetail", data);
+        return pdfGenerateService.generateOrderDetailPdfFile("orderDetailThymeLeaf", data);
     }
 }

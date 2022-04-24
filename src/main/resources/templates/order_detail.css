@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Niconne&family=Pacifico&family=Raleway:wght@100;300;400;600;700;800;900;950&family=Roboto+Slab:wght@100;300;400;600;700;800;900;950&display=swap");
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 15px;
+    font-family: "Raleway";
+    line-height: 1.5;
+    color: #545454;
+}
+

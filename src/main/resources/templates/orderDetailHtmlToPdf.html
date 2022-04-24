@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="order_detail.css"/>
+    <style>
+        h4 {
+            text-align: center;
+        }
+        .order {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #table_header{
+            border-bottom: 1px solid black;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div>
+        <img width="300px" src="https://eximias.ch/wp-content/uploads/2021/06/cropped-logo-final-300x86.png" />
+    </div>
+    <div class="contact">
+        <ul style="list-style: none; font-size: 15px; margin-left: 50px;">
+            <li>Address: Gweerhofstrasse 3, CH-8853 Lachen</li>
+            <li>Email: info@eximias.ch</li>
+            <li>Phone:+41 44 593 82 15</li>
+            <li>Mobile:+41 76 473 39 41</li>
+        </ul>
+    </div>
+</header>
+<div style="margin-top: 50px; position: relative;">
+    <div style="margin-left: 50px; float: left; margin-right:  100px">
+        <p><u><b>Order</b></u></p>
+        <p>OrderId: 2</p>
+        <p>Order date: 25/04/2022</p>
+        <p>Delivery to: Vung Tau</p>
+
+    </div>
+    <div style="margin-left: 50px; float: left">
+        <p><u><b>Customer</b></u></p>
+        <p>Customer: Smith</p>
+        <p>Address: vn</p>
+    </div>
+    <div style="clear: both"></div>
+</div>
+<div style="position: absolute; width: 100%; margin-left: 50px; padding-top: 20px;">
+    <table class="order" style="margin-right: 0px; border-collapse: collapse;">
+        <tr id="table_header">
+            <th>Item #</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td >1</td>
+            <td>mouse</td>
+            <td>100</td>
+            <td>25</td>
+            <td>2500</td>
+        </tr>
+        <tr>
+            <td colspan="4"><b>Total</b></td>
+            <td ><b>2500</b></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

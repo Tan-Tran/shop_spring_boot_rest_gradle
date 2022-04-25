@@ -16,15 +16,6 @@ import java.util.stream.Collectors;
 public class ProductService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
-    public Product toEntity(Product product, ProductDTO productDTO){
-        product.setQuantity(productDTO.getQuantity());
-        product.setOrigin(productDTO.getOrigin());
-        product.setDescription(productDTO.getDescription());
-        product.setName(productDTO.getName());
-        product.setPrice(productDTO.getPrice());
-        product.setDisplay(productDTO.isDisplay());
-        return product;
-    }
 
     public List<ProductDTO> toDto(List<Product> products){
         return products.stream().map(productMapper::toDto).collect(Collectors.toList());
@@ -51,7 +42,7 @@ public class ProductService {
 
     public ProductDTO update(int id, ProductDTO productDTO){
         return productRepository.findById(id)
-                .map(entity -> toEntity(entity, productDTO))
+                .map(entity -> productMapper.toEntity(entity, productDTO))
                 .map(productRepository:: save)
                 .map(productMapper::toDto)
                 .get();

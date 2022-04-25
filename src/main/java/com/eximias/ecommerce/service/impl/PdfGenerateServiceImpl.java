@@ -21,13 +21,10 @@ import java.util.Map;
 
 @Service
 public class PdfGenerateServiceImpl implements PdfGenerateService {
-
     private final String ORDER_DETAIL_HTML_SOURCE_PATH = "src/main/resources/templates/orderDetailHtmlToPdf.html";
     private final String ORDER_DETAIL_PDF_PATH = "src/main/resources/templates/orderDetail.pdf";
-
     @Autowired
     private TemplateEngine templateEngine;
-
     @Override
     public ResponseEntity<byte[]> generateOrderDetailPdfFile(String templateName, Map<String, Object> data){
         Context context = new Context();

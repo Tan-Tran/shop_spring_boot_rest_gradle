@@ -18,8 +18,6 @@ public class OrdersService {
     private final OrdersMapper ordersMapper;
     private final CustomerMapper customerMapper;
     private final OrdersRepository ordersRepository;
-    private CustomerService customerService;
-    private ProductService productService;
     public Orders toEntity(Orders orders, OrdersDTO dto){
         dto.getOrderItemsList().stream().forEach(orderItems -> orderItems.setOrders(orders));
         orders.setCustomer(customerMapper.toEntity(dto.getCustomerDTO()));

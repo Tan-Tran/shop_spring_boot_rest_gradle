@@ -16,12 +16,6 @@ import java.util.List;
 public class CustomerService {
     private final CustomerRepository customerRepository;
     private final CustomerMapper customerMapper;
-    public Customer toEntity(Customer customer, CustomerDTO dto){
-        customer.setName(dto.getName());
-        customer.setAddress(dto.getAddress());
-        customer.setDateOfBirth(dto.getDateOfBirth());
-        return customer;
-    }
     public List<CustomerDTO> toDto(List<Customer> customers){
         return customers.stream().map(customerMapper::toDto).collect(Collectors.toList());
     }
@@ -44,7 +38,7 @@ public class CustomerService {
     }
     public CustomerDTO update(int id, CustomerDTO dto){
         return customerRepository.findById(id)
-            .map(entity -> toEntity(entity, dto))
+            .map(entity -> customerMapper.toEntity(entity, dto))
             .map(customerRepository::save)
             .map(customerMapper::toDto)
             .get();

@@ -23,7 +23,6 @@ public class Orders {
 
     @ManyToOne
     @JoinColumn(name="customer_id")
-    @ToString.Exclude
     private Customer customer;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
